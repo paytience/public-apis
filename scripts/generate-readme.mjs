@@ -50,11 +50,52 @@ function formatYesNo(value) {
 }
 
 /**
- * Escape pipe characters in markdown table cells
+ * Escape pipe characters and newlines in markdown table cells
  */
 function escapeMarkdown(text) {
   if (!text) return "";
-  return text.replace(/\|/g, "\\|");
+  return text
+    .replace(/\|/g, "\\|")
+    .replace(/\n/g, " ")
+    .replace(/\r/g, "")
+    .replace(/<[^>]*>/g, ""); // Remove HTML tags
+}
+
+/**
+ * Truncate description to max length, ending at last complete sentence
+ */
+function truncateDescription(text, maxLength = 100) {
+  if (!text) return "";
+
+  // Clean the text first
+  let cleaned = text.trim();
+
+  // If already short enough, return as-is
+  if (cleaned.length <= maxLength) return cleaned;
+
+  // Try to find the last sentence boundary before maxLength
+  const truncated = cleaned.substring(0, maxLength);
+
+  // Look for sentence endings (. ! ?)
+  const lastPeriod = truncated.lastIndexOf(".");
+  const lastExclaim = truncated.lastIndexOf("!");
+  const lastQuestion = truncated.lastIndexOf("?");
+
+  const lastSentence = Math.max(lastPeriod, lastExclaim, lastQuestion);
+
+  // If we found a sentence boundary after at least 40 chars, use it
+  if (lastSentence > 40) {
+    return cleaned.substring(0, lastSentence + 1);
+  }
+
+  // Otherwise, truncate at last space and add ellipsis
+  const lastSpace = truncated.lastIndexOf(" ");
+  if (lastSpace > 40) {
+    return cleaned.substring(0, lastSpace) + "...";
+  }
+
+  // Fallback: hard truncate
+  return truncated + "...";
 }
 
 /**
@@ -122,7 +163,9 @@ function generateReadme(data) {
 
     for (const api of apis) {
       const name = escapeMarkdown(api["API Name"] || "");
-      const description = escapeMarkdown(api.Description || "");
+      const description = escapeMarkdown(
+        truncateDescription(api.Description || "", 100),
+      );
       const link = api["Documentation Link"] || "";
       const auth = formatAuth(api.Auth);
       const https = formatYesNo(api.HTTPS);
