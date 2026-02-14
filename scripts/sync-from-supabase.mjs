@@ -79,7 +79,7 @@ async function fetchAPIs() {
 
   const data = await supabaseQuery(
     "apis",
-    "api_name,description,auth,https,cors,documentation_link,categories(name)",
+    "api_name,description,auth,https,cors,documentation_link,pricing_model,categories(name)",
     { status: "eq.active", order: "api_name.asc" },
     true, // fetchAll - paginate through all results
   );
@@ -93,6 +93,7 @@ async function fetchAPIs() {
     Cors: row.cors || "",
     "Documentation Link": row.documentation_link || "",
     Category: row.categories?.name || "Other",
+    Pricing: row.pricing_model || "unknown",
   }));
 
   console.log(`Fetched ${apis.length} APIs`);

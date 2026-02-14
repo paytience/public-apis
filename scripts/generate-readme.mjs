@@ -99,6 +99,17 @@ function truncateDescription(text, maxLength = 100) {
 }
 
 /**
+ * Format pricing value for display
+ */
+function formatPricing(pricing) {
+  if (!pricing || pricing === "" || pricing === "unknown") return "Unknown";
+  if (pricing === "free") return "Free";
+  if (pricing === "freemium") return "Freemium";
+  if (pricing === "paid") return "Paid";
+  return pricing;
+}
+
+/**
  * Generate the README content
  */
 function generateReadme(data) {
@@ -141,6 +152,20 @@ function generateReadme(data) {
     </p>
 </div>
 
+## Want to add an API?
+
+### Option 1: Via Website (Recommended)
+
+Visit [findapis.com](https://findapis.com) and click **"Suggest an API"** to submit a new API. Your submission will be reviewed and if approved, the API will appear in the directory within 1 minute.
+
+<div align="center">
+    <img src="./assets/add-api-screenshot.jpg" alt="Suggest an API on findapis.com" width="600">
+</div>
+
+### Option 2: Via Pull Request
+
+You can also submit a pull request directly to this repository. See the [Contributing Guide](CONTRIBUTING.md) for details.
+
 ## Index
 
 `;
@@ -158,8 +183,8 @@ function generateReadme(data) {
     const apis = byCategory[category];
 
     content += `### ${category}\n`;
-    content += `| API | Description | Auth | HTTPS | CORS |\n`;
-    content += `|---|---|---|---|---|\n`;
+    content += `| API | Description | Auth | HTTPS | CORS | Pricing |\n`;
+    content += `|---|---|---|---|---|---|\n`;
 
     for (const api of apis) {
       const name = escapeMarkdown(api["API Name"] || "");
@@ -170,9 +195,10 @@ function generateReadme(data) {
       const auth = formatAuth(api.Auth);
       const https = formatYesNo(api.HTTPS);
       const cors = formatYesNo(api.Cors);
+      const pricing = formatPricing(api.Pricing);
 
       const nameCell = link ? `[${name}](${link})` : name;
-      content += `| ${nameCell} | ${description} | ${auth} | ${https} | ${cors} |\n`;
+      content += `| ${nameCell} | ${description} | ${auth} | ${https} | ${cors} | ${pricing} |\n`;
     }
 
     content += `\n**[⬆ Back to Index](#index)**\n\n`;

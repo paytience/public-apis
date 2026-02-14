@@ -66,6 +66,7 @@ The response will be an object with the following structure:
             "Description": string,
             "HTTPS": boolean,
             "Documentation Link": string,
+            "Pricing": string,
         }
     ]
 }

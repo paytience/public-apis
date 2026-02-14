@@ -1,5 +1,26 @@
 # Contributing to public-apis
 
+## Adding a New API
+
+The easiest way to add a new API is through our website:
+
+1. Visit [findapis.com](https://findapis.com)
+2. Click **"Suggest an API"**
+3. Fill in the API details
+4. Submit for review
+
+Your submission will be reviewed and if approved, the API will appear in the directory within 1 minute.
+
+<div align="center">
+    <img src="./assets/add-api-screenshot.jpg" alt="Suggest an API on findapis.com" width="600">
+</div>
+
+---
+
+## Alternative: Pull Request
+
+If you prefer, you can also submit a pull request directly to this repository.
+
 > ❗️ The `/db` folder is auto-generated, so please **_do not_** edit it. Changes related to public APIs should happen on the `README.md` file.
 
 > While the masses of pull requests and community involvement are appreciated, some pull requests have been specifically
