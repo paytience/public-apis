@@ -17,7 +17,7 @@ async function fetchResources(file: string) {
     const octokit = new Octokit({ auth: process.env.GITHUB_ACCESS_TOKEN })
 
     const { data } = await octokit.rest.repos.getContent({
-        owner: 'marcelscruz',
+        owner: 'paytience',
         repo: 'public-apis',
         path: `/db/${file}.json`,
     })
@@ -59,13 +59,13 @@ The response will be an object with the following structure:
     "count": number,
     "entries": [
         {
-            "API": string,
+            "API Name": string,
             "Auth": string,
             "Category": string,
             "Cors": string,
             "Description": string,
             "HTTPS": boolean,
-            "Link": string,
+            "Documentation Link": string,
         }
     ]
 }

@@ -20,64 +20,64 @@ async function run() {
     console.log(`Head ref: ${pr.head.ref}`);
     console.log(`Base ref: ${pr.base.ref}`);
 
-  const filesChanged = await octokit.rest.pulls.listFiles({
-    owner,
-    repo,
-    pull_number: prNumber,
-  });
-
-  const comments = [];
-
-  // Check 1: New API links in README.md
-  const readmeFile = filesChanged.data.find(
-    (file) => file.filename.toLowerCase() === "readme.md"
-  );
-
-  if (readmeFile) {
-    console.log("README.md modified. Checking for new API links...");
-    const newLinks = await checkForNewApiLinks(owner, repo, pr);
-    if (newLinks.length > 0) {
-      const linkComment =
-        newLinks.length === 1
-          ? `**API link:** ${newLinks[0]}`
-          : [
-              "**New API links:**",
-              "",
-              ...newLinks.map((link) => `- ${link}`),
-            ].join("\n");
-      comments.push(linkComment);
-    }
-  }
-
-  // Check 2: Edits to /db folder
-  const dbFiles = filesChanged.data.filter((file) =>
-    file.filename.startsWith("db/")
-  );
-
-  if (dbFiles.length > 0) {
-    console.log(
-      `DB folder modifications detected in ${dbFiles.length} file(s)`
-    );
-    const dbWarning =
-      "Thanks for your contribution!\n❗️ **Warning:** The `/db` folder is auto-generated, so please do not edit it. Changes related to public APIs should happen in the `README.md` file. Read the [contribution guidelines](https://github.com/marcelscruz/public-apis/blob/main/CONTRIBUTING.md) for more details.";
-    comments.push(dbWarning);
-  }
-
-  // Post all comments as a single comment
-  if (comments.length > 0) {
-    const finalComment = comments.join("\n\n---\n\n");
-
-    await octokit.rest.issues.createComment({
+    const filesChanged = await octokit.rest.pulls.listFiles({
       owner,
       repo,
-      issue_number: prNumber,
-      body: finalComment,
+      pull_number: prNumber,
     });
 
-    console.log("Comment posted with all checks.");
-  } else {
-    console.log("No issues found in this PR.");
-  }
+    const comments = [];
+
+    // Check 1: New API links in README.md
+    const readmeFile = filesChanged.data.find(
+      (file) => file.filename.toLowerCase() === "readme.md",
+    );
+
+    if (readmeFile) {
+      console.log("README.md modified. Checking for new API links...");
+      const newLinks = await checkForNewApiLinks(owner, repo, pr);
+      if (newLinks.length > 0) {
+        const linkComment =
+          newLinks.length === 1
+            ? `**API link:** ${newLinks[0]}`
+            : [
+                "**New API links:**",
+                "",
+                ...newLinks.map((link) => `- ${link}`),
+              ].join("\n");
+        comments.push(linkComment);
+      }
+    }
+
+    // Check 2: Edits to /db folder
+    const dbFiles = filesChanged.data.filter((file) =>
+      file.filename.startsWith("db/"),
+    );
+
+    if (dbFiles.length > 0) {
+      console.log(
+        `DB folder modifications detected in ${dbFiles.length} file(s)`,
+      );
+      const dbWarning =
+        "Thanks for your contribution!\n❗️ **Warning:** The `/db` folder is auto-generated, so please do not edit it. Changes related to public APIs should happen in the `README.md` file. Read the [contribution guidelines](https://github.com/paytience/public-apis/blob/main/CONTRIBUTING.md) for more details.";
+      comments.push(dbWarning);
+    }
+
+    // Post all comments as a single comment
+    if (comments.length > 0) {
+      const finalComment = comments.join("\n\n---\n\n");
+
+      await octokit.rest.issues.createComment({
+        owner,
+        repo,
+        issue_number: prNumber,
+        body: finalComment,
+      });
+
+      console.log("Comment posted with all checks.");
+    } else {
+      console.log("No issues found in this PR.");
+    }
   } catch (error) {
     console.error("Error in PR review automation:", error);
     // Don't exit with error code to avoid failing the entire workflow
@@ -111,13 +111,13 @@ async function checkForNewApiLinks(owner, repo, pr) {
 
     const baseLinks = new Set(
       [...baseContent.matchAll(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g)].map(
-        (m) => m[2]
-      )
+        (m) => m[2],
+      ),
     );
     const headLinks = new Set(
       [...headContent.matchAll(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g)].map(
-        (m) => m[2]
-      )
+        (m) => m[2],
+      ),
     );
 
     const newLinks = [...headLinks].filter((link) => !baseLinks.has(link));
