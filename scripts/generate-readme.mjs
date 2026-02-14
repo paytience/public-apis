@@ -86,14 +86,18 @@ function generateReadme(data) {
   // Build README content
   let content = `# Public APIs
 
-The largest directory of public APIs for developers. Includes free, freemium, and paid APIs.
-
 <div align="center">
-    <a href="https://findapis.com">findapis.com</a> •
-    <a href="CONTRIBUTING.md">Contributing Guide</a> •
-    <a href="https://github.com/paytience/public-apis/issues">Issues</a> •
-    <a href="https://github.com/paytience/public-apis/pulls">Pull Requests</a> •
-    <a href="LICENSE">License</a>
+    <a href="https://findapis.com">
+        <img src="./assets/findapis-logo.svg" alt="findapis.com" width="64" height="64">
+    </a>
+    <p>The largest directory of public APIs for developers. Includes free, freemium, and paid APIs.</p>
+    <p>
+        <a href="https://findapis.com">findapis.com</a> •
+        <a href="CONTRIBUTING.md">Contributing Guide</a> •
+        <a href="https://github.com/paytience/public-apis/issues">Issues</a> •
+        <a href="https://github.com/paytience/public-apis/pulls">Pull Requests</a> •
+        <a href="LICENSE">License</a>
+    </p>
 </div>
 
 ## Index
