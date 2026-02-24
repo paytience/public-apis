@@ -1,6 +1,6 @@
 # Personality
 
-24 APIs in this category.
+25 APIs in this category.
 
 [Back to Main Index](../README.md)
 
@@ -34,6 +34,7 @@
 | [Traitify](https://app.traitify.com/developer) | Assess, collect and analyze Personality | No | Yes |  | Free |
 | [Udemy(instructor)](https://www.udemy.com/developers/instructor/) | API for instructors on Udemy | `apiKey` | Yes |  | Free |
 | [Vadivelu HTTP Codes](https://vadivelu.anoram.com/) | On demand HTTP Codes with images | No | Yes | No | Free |
+| [Vedika](https://vedika.io) | AI-powered Vedic astrology API with birth charts, compatibility, doshas, AI chatbot in 22 languages | `apiKey` | Yes | Yes | Unknown |
 | [WhoIsTheOldest](https://whoistheoldest.com) | This application tracks and displays data about the oldest person currently alive and the oldest... | No | No | No | Free |
 | [Zen Quotes](https://zenquotes.io/) | Large collection of Zen quotes for inspiration | No | Yes | Yes | Free |
 

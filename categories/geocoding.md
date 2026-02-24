@@ -1,6 +1,6 @@
 # Geocoding
 
-582 APIs in this category.
+583 APIs in this category.
 
 [Back to Main Index](../README.md)
 
@@ -285,6 +285,7 @@
 | [IPInfoDB Timezone](http://ipinfodb.com/ip_location_api.php) | IPInfoDB is a free IP address geolocation tool. | No | Yes |  | Unknown |
 | [Ipregistry](https://ipregistry.co/docs) | Ipregistry API allows developers and businesses to get geolocation information but also threat data... | No | Yes |  | Unknown |
 | [ipTwist](https://iptwist.com/documentation) | The ipTwist API offers a simple and affordable IP geolocation service. | No | Yes |  | Unknown |
+| [IPWho IP Geolocation](https://www.ipwho.org/) | 2,000 free API calls per day. Production grade IP intelligence at non-enterprise prices. | `apiKey` | Yes | Yes | Freemium |
 | [IPWhois](https://www.ipwhois.io/documentation) | Identify website, IP, or email owners with geolocation, reverse IP lookup, country insights, ASN... | `apiKey` | Yes |  | Free |
 | [IPWHOIS.io IP Geolocation](https://ipwhois.io/documentation) | The IPWHOIS.io IP Geolocation API allows developers to integrate IP geolocation into their scripts... | No | Yes |  | Unknown |
 | [isLocation](https://www.islocation.com) | IsLocation is a web service dedicated to helping you handle location information within your apps. | No | Yes |  | Unknown |

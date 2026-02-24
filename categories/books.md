@@ -1,6 +1,6 @@
 # Books
 
-53 APIs in this category.
+54 APIs in this category.
 
 [Back to Main Index](../README.md)
 
@@ -30,6 +30,7 @@
 | [Gutendex](https://gutendex.com/) | Web-API for fetching data from Project Gutenberg Books Library | No | Yes |  | Free |
 | [HarperCollins Open Book](http://developer.harpercollins.com) | HarperCollins is a large book publisher. HarperCollins publishes a wide variety of genres,... | No | Yes |  | Unknown |
 | [Harry Potter](https://github.com/fedeperin/potterapi) | API to get data from Harry Potter books, movies and characters | No | Yes | Yes | Free |
+| [Holy Bible](https://holy-bible-api.com/docs) | Free Bible API serving 800+ text translations and 40+ audio translations | No | Yes | No | Free |
 | [Holy Bible](https://holy-bible-api.com/docs) | Free Bible API serving 800+ text translations and 40+ audio translations | No | Yes | No | Free |
 | [Ice And Fire](https://anapioficeandfire.com) | The Ice And Fire API allows access of quantified and structured data from the universe of 'A Song... | No | Yes |  | Unknown |
 | [IT Bookstore](https://api.itbook.store) | IT Bookstore is the supporting API for IT Bookstore, a California-based IT, Programming, and... | No | Yes |  | Unknown |

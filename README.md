@@ -30,7 +30,7 @@ You can also submit a pull request directly to this repository. See the [Contrib
 
 ## Categories
 
-**15546 APIs** across **53 categories**
+**15553 APIs** across **53 categories**
 
 | Category | APIs |
 |----------|------|
@@ -40,17 +40,17 @@ You can also submit a pull request directly to this repository. See the [Contrib
 | [Art & Design](./categories/art-and-design.md) | 21 |
 | [Authentication & Authorization](./categories/authentication-and-authorization.md) | 103 |
 | [Blockchain](./categories/blockchain.md) | 89 |
-| [Books](./categories/books.md) | 53 |
+| [Books](./categories/books.md) | 54 |
 | [Business](./categories/business.md) | 973 |
 | [Calendar](./categories/calendar.md) | 17 |
 | [Cloud Storage & File Sharing](./categories/cloud-storage-and-file-sharing.md) | 398 |
-| [Continuous Integration](./categories/continuous-integration.md) | 7 |
+| [Continuous Integration](./categories/continuous-integration.md) | 8 |
 | [Cryptocurrency](./categories/cryptocurrency.md) | 298 |
 | [Currency Exchange](./categories/currency-exchange.md) | 44 |
 | [Data Validation](./categories/data-validation.md) | 13 |
-| [Development](./categories/development.md) | 2209 |
+| [Development](./categories/development.md) | 2210 |
 | [Dictionaries](./categories/dictionaries.md) | 11 |
-| [Documents & Productivity](./categories/documents-and-productivity.md) | 172 |
+| [Documents & Productivity](./categories/documents-and-productivity.md) | 173 |
 | [Email](./categories/email.md) | 274 |
 | [Entertainment](./categories/entertainment.md) | 188 |
 | [Environment](./categories/environment.md) | 55 |
@@ -58,7 +58,7 @@ You can also submit a pull request directly to this repository. See the [Contrib
 | [Finance](./categories/finance.md) | 1536 |
 | [Food & Drink](./categories/food-and-drink.md) | 88 |
 | [Games & Comics](./categories/games-and-comics.md) | 269 |
-| [Geocoding](./categories/geocoding.md) | 582 |
+| [Geocoding](./categories/geocoding.md) | 583 |
 | [Government](./categories/government.md) | 354 |
 | [Health](./categories/health.md) | 195 |
 | [Jobs](./categories/jobs.md) | 106 |
@@ -69,7 +69,7 @@ You can also submit a pull request directly to this repository. See the [Contrib
 | [Open Source Projects](./categories/open-source-projects.md) | 45 |
 | [Other](./categories/other.md) | 1496 |
 | [Patent](./categories/patent.md) | 4 |
-| [Personality](./categories/personality.md) | 24 |
+| [Personality](./categories/personality.md) | 25 |
 | [Phone](./categories/phone.md) | 290 |
 | [Photography](./categories/photography.md) | 317 |
 | [Podcasts](./categories/podcasts.md) | 7 |
@@ -78,7 +78,7 @@ You can also submit a pull request directly to this repository. See the [Contrib
 | [Security](./categories/security.md) | 339 |
 | [Shopping](./categories/shopping.md) | 507 |
 | [Social](./categories/social.md) | 755 |
-| [Sports & Fitness](./categories/sports-and-fitness.md) | 273 |
+| [Sports & Fitness](./categories/sports-and-fitness.md) | 274 |
 | [Test Data](./categories/test-data.md) | 72 |
 | [Text Analysis](./categories/text-analysis.md) | 24 |
 | [Tracking](./categories/tracking.md) | 278 |

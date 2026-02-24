@@ -1,6 +1,6 @@
 # Sports & Fitness
 
-273 APIs in this category.
+274 APIs in this category.
 
 [Back to Main Index](../README.md)
 
@@ -83,6 +83,7 @@
 | [F1](https://f1api.dev) | Open F1 API with realtime data | No | Yes |  | Free |
 | [Fantasy Football Nerd](http://www.fantasyfootballnerd.com/fantasy-football-api) | From their site: API for draft rankings from FantasyFootballNerd.com. | No | Yes |  | Unknown |
 | [Fantasy Premier League](https://github.com/flavnat/fpl-api) | Fantasy Premier League data, including fixtures, teams, and player stats | No | Yes |  | Free |
+| [Fantasy Premier League](https://github.com/flavnat/fpl-api) | Fantasy Premier League data, including fixtures, teams, and player stats | No | Yes | Unknown | Free |
 | [Fantasy Sport Net](https://fantasysportnet.com/data/support.jsp) | The Fantasy Sport Net API provides realtime programmatic access to stats from the Premier League,... | No | Yes |  | Unknown |
 | [FantasyData NFL Scores](https://fantasydata.com/api/api-documentation/nfl) | FantasyData.com provides developers, the fantasy community, and media clients around the world with... | No | Yes |  | Unknown |
 | [FantasyData NHL](https://developers.fantasydata.com/api-documentation/nhl) | FantasyData.com provides developers, the fantasy community, and media clients around the world with... | No | Yes |  | Unknown |

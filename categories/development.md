@@ -1,6 +1,6 @@
 # Development
 
-2209 APIs in this category.
+2210 APIs in this category.
 
 [Back to Main Index](../README.md)
 
@@ -1718,6 +1718,7 @@
 | [Screenhero](https://screenhero.com/features.html) | Screenhero is a collaborative screen sharing application. | No | Yes |  | Unknown |
 | [Screenleap](https://www.screenleap.com/api) | Screenleap is a web-based service that enables users to share their computer screens with others. | No | Yes |  | Unknown |
 | [Screenshot](https://www.abstractapi.com/website-screenshot-api) | Take programmatic screenshots of web pages from any website | `apiKey` | Yes | Yes | Unknown |
+| [Screenshot Scout](https://screenshotscout.com/) | Screenshot API for developers that captures any URL in one HTTP request with predictable output | `apiKey` | Yes | Unknown | Unknown |
 | [ScreenshotAPI.net](https://screenshotapi.net/) | Create pixel-perfect website screenshots | `apiKey` | Yes | Yes | Free |
 | [Screenshotbase](https://screenshotbase.com/) | Screenshot API, 1000 free requests per month | `apiKey` | Yes | Yes | Free |
 | [ScreenshotOne.com](https://screenshotone.com/) | Convert URLs, HTML, or Markdown into PNG, JPEG, WebP, or PDF with a simple screenshot API | `apiKey` | Yes | Yes | Free |
