@@ -10,16 +10,21 @@ The easiest way to add an API is via [findapis.com](https://findapis.com) - clic
 
 ### API Details
 
+**Required:**
 | Field | Value |
 |-------|-------|
-| API Name | |
+| API Name* | |
+| Documentation Link* | |
+
+**Optional:**
+| Field | Value |
+|-------|-------|
 | Description | |
-| Documentation URL | |
-| Auth | No / `apiKey` / `OAuth` / `Bearer` |
-| HTTPS | Yes / No |
-| CORS | Yes / No / Unknown |
-| Pricing | Free / Freemium / Paid / Unknown |
 | Category | |
+| Auth | apiKey / OAuth / Bearer / Basic / No |
+| HTTPS | Yes / No / Unknown |
+| CORS | yes / no / unknown |
+| Pricing | free / freemium / paid |
 
 ### JSON Entry
 
@@ -28,12 +33,12 @@ Add this to `db/resources.json`:
 ```json
 {
   "API Name": "",
+  "Documentation Link": "",
   "Description": "",
+  "Category": "",
   "Auth": "",
   "HTTPS": true,
   "Cors": "",
-  "Documentation Link": "",
-  "Category": "",
   "Pricing": ""
 }
 ```
