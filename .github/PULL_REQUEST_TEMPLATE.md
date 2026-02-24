@@ -8,8 +8,6 @@ The easiest way to add an API is via [findapis.com](https://findapis.com) - clic
 
 ## Adding an API via Pull Request
 
-> ⚠️ **Important:** Edit `db/resources.json` directly. Do NOT edit README.md or files in `categories/` - they are auto-generated.
-
 ### API Details
 
 | Field | Value |
@@ -24,6 +22,8 @@ The easiest way to add an API is via [findapis.com](https://findapis.com) - clic
 | Category | |
 
 ### JSON Entry
+
+Add this to `db/resources.json`:
 
 ```json
 {
@@ -41,7 +41,7 @@ The easiest way to add an API is via [findapis.com](https://findapis.com) - clic
 ### Checklist
 
 - [ ] I have read the [contributing guide](https://github.com/paytience/public-apis/blob/main/CONTRIBUTING.md)
-- [ ] I edited `db/resources.json` (not README.md)
+- [ ] I edited `db/resources.json`
 - [ ] The API has proper documentation
 - [ ] My addition is ordered alphabetically within the `entries` array
 - [ ] The description is under 100 characters
