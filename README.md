@@ -90,4 +90,4 @@ You can also submit a pull request directly to this repository. See the [Contrib
 
 ---
 
-*Generated from [Supabase](https://supabase.com) database. Data syncs daily.*
+*Source of truth: [`db/resources.json`](./db/resources.json). Syncs bidirectionally with [Supabase](https://supabase.com).*

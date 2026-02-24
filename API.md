@@ -1,12 +1,15 @@
 # API
 
-This repository auto-generates the `/db` folder after each commit to `main`. The folder includes two files:
+The `db/` folder contains the source of truth for all API data in this repository:
 
-`categories.json` - A list of all categories
+- `resources.json` - All APIs with their metadata
+- `categories.json` - All categories
 
-`resources.json` - A list of all APIs
+These files sync bidirectionally with Supabase. The `README.md` and `categories/*.md` files are auto-generated from `resources.json`.
 
-You can then use [Octokit](https://github.com/octokit) to fetch the data from the `db` folder.
+## Fetching the Data
+
+You can use [Octokit](https://github.com/octokit) to fetch the data from the `db` folder.
 
 Here's a minimal snippet on how to accomplish that:
 
@@ -36,7 +39,7 @@ async function fetchResources(file: string) {
 }
 ```
 
-The response will be an object with the following structure:
+## Data Structure
 
 `categories.json`:
 
@@ -60,14 +63,21 @@ The response will be an object with the following structure:
     "entries": [
         {
             "API Name": string,
-            "Auth": string,
-            "Category": string,
-            "Cors": string,
             "Description": string,
+            "Auth": string,
             "HTTPS": boolean,
+            "Cors": string,
             "Documentation Link": string,
-            "Pricing": string,
+            "Category": string,
+            "Pricing": string
         }
     ]
 }
 ```
+
+## Direct URL Access
+
+You can also access the raw JSON files directly:
+
+- **resources.json**: `https://raw.githubusercontent.com/paytience/public-apis/main/db/resources.json`
+- **categories.json**: `https://raw.githubusercontent.com/paytience/public-apis/main/db/categories.json`

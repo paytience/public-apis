@@ -233,7 +233,7 @@ You can also submit a pull request directly to this repository. See the [Contrib
   }
 
   content += `\n---\n\n`;
-  content += `*Generated from [Supabase](https://supabase.com) database. Data syncs daily.*\n`;
+  content += `*Source of truth: [\`db/resources.json\`](./db/resources.json). Syncs bidirectionally with [Supabase](https://supabase.com).*\n`;
 
   return content;
 }

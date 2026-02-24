@@ -21,7 +21,15 @@ Your submission will be reviewed and if approved, the API will appear in the dir
 
 If you prefer, you can also submit a pull request directly to this repository.
 
-> ❗️ The `/db` folder is auto-generated, so please **_do not_** edit it. Changes related to public APIs should happen on the `README.md` file.
+### Important: Source of Truth
+
+> ⚠️ **`db/resources.json` is the source of truth** for this repository.
+>
+> - `README.md` and `categories/*.md` files are **auto-generated** from `resources.json`
+> - To add or modify an API via PR, edit `db/resources.json` directly
+> - Do NOT edit `README.md` or files in the `categories/` folder - your changes will be overwritten
+
+### Guidelines
 
 > While the masses of pull requests and community involvement are appreciated, some pull requests have been specifically
 > opened to market company APIs that offer paid solutions. This API list is not a marketing tool, but a tool to help the
@@ -31,80 +39,92 @@ If you prefer, you can also submit a pull request directly to this repository.
 >
 > Thanks for understanding! :)
 
-## Formatting
+## API Entry Format
 
-Current API entry format:
+Each API entry in `db/resources.json` has the following fields:
 
-| API                                  | Description        | Auth                                     | HTTPS                       | CORS                                                                                    |
-| ------------------------------------ | ------------------ | ---------------------------------------- | --------------------------- | --------------------------------------------------------------------------------------- |
-| API Title(Link to API documentation) | Description of API | Does this API require authentication? \* | Does the API support HTTPS? | Does the API support [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)? \* |
-
-Example entry:
-
+```json
+{
+  "API Name": "NASA",
+  "Description": "NASA data, including imagery",
+  "Auth": "apiKey",
+  "HTTPS": true,
+  "Cors": "yes",
+  "Documentation Link": "https://api.nasa.gov",
+  "Category": "Science & Math",
+  "Pricing": "free"
+}
 ```
-| [NASA](https://api.nasa.gov) | NASA data, including imagery | No | Yes | Yes |
-```
 
-The URL must start with `http://` or `https://`.
+### Field Descriptions
 
-Currently, the only accepted inputs for the `Auth` field are as follows:
+| Field | Description | Valid Values |
+|-------|-------------|--------------|
+| `API Name` | Name of the API (do NOT end with "API") | Any string |
+| `Description` | Brief description (max 100 characters) | Any string |
+| `Auth` | Authentication method | `apiKey`, `OAuth`, `Bearer`, `No`, or empty |
+| `HTTPS` | Supports HTTPS? | `true` or `false` |
+| `Cors` | Supports [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)? | `yes`, `no`, or `unknown` |
+| `Documentation Link` | URL to API documentation | Must start with `http://` or `https://` |
+| `Category` | Category for the API | See [categories list](#categories) |
+| `Pricing` | Pricing model | `free`, `freemium`, `paid`, or `unknown` |
 
--   `OAuth` - _the API supports OAuth_
--   `apiKey` - _the API uses a private key string/token for authentication - try and use the correct parameter_
--   `X-Mashape-Key` - _the name of the header which may need to be sent_
--   `No` - _the API requires no authentication to run_
--   `User-Agent` - _the name of the header to be sent with requests to the API_
+### Categories
 
-Currently, the only accepted inputs for the `CORS` field are as follows:
-
--   `Yes` - _the API supports CORS_
--   `No` - _the API does not support CORS_
--   `Unknown` - _it is unknown if the API supports CORS_
-
-_Without proper [CORS configuration](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) an API will only be usable server side._
-
-After you've created a branch on your fork with your changes, it's time to [make a pull request][pr-link].
-
-_Please follow the guidelines given below while making a Pull Request to the Public APIs_
+Valid categories are:
+- Animals, Anime, Anti-Malware, Art & Design
+- Authentication & Authorization, Blockchain, Books, Business
+- Calendar, Cloud Storage & File Sharing, Continuous Integration
+- Cryptocurrency, Currency Exchange, Data Validation
+- Development, Dictionaries, Documents & Productivity
+- Email, Entertainment, Environment, Events
+- Finance, Food & Drink, Games & Comics, Geocoding
+- Government, Health, Jobs, Machine Learning
+- Music, News, Open Data, Open Source Projects
+- Other, Patent, Personality, Phone
+- Photography, Podcasts, Programming, Science & Math
+- Security, Shopping, Social, Sports & Fitness
+- Test Data, Text Analysis, Tracking, Transportation
+- URL Shorteners, Vehicle, Video, Weather
 
 ## Pull Request Guidelines
 
--   Never put an update/new version of an API that is already listed, the old version of the API gets deprecated.
--   Continue to follow the alphabetical ordering that is in place per section.
--   Each table column should be padded with one space on either side.
--   The Description should not exceed 100 characters.
--   If an API seems to fall into multiple categories, please place the listing within the section most in line with the services offered through the API. For example, the Instagram API is listed under `Social` since it is mainly a social network, even though it could also apply to `Photography`.
--   Add one link per Pull Request.
--   Make sure the PR title is in the format of `Add Api-name API` _for e.g._: `Add Blockchain API`
--   Use a short descriptive commit message. _for e.g._: ❌`Update Readme.md` ✔ `Add Blockchain API to Cryptocurrency`
--   Search previous Pull Requests or Issues before making a new one, as yours may be a duplicate.
--   Don't mention the TLD(Top Level Domain) in the name of the API. _for e.g._: ❌Gmail.com ✔Gmail
--   Please make sure the API name does not end with `API`. _for e.g._: ❌Gmail API ✔Gmail
--   Please make sure the API has proper documentation.
--   Please make sure you squash all commits together before opening a pull request. If your pull request requires changes upon review, please be sure to squash all additional commits as well. [This wiki page][squash-link] outlines the squash process.
--   Target your Pull Request to the `main` branch of the `public-apis`
+- Search previous Pull Requests or Issues before making a new one, as yours may be a duplicate
+- Add one API per Pull Request
+- Make sure the PR title is in the format of `Add Api-name API` _for e.g._: `Add NASA API`
+- Use a short descriptive commit message. _for e.g._: `Add NASA API to Science & Math`
+- Don't mention the TLD (Top Level Domain) in the name of the API. _for e.g._: ❌ Gmail.com ✔ Gmail
+- Please make sure the API name does not end with `API`. _for e.g._: ❌ Gmail API ✔ Gmail
+- Please make sure the API has proper documentation
+- Target your Pull Request to the `main` branch
 
-Once you’ve submitted a pull request, the collaborators can review your proposed changes and decide whether or not to incorporate (pull in) your changes.
+### How to Add an API via Pull Request
+
+1. Fork and clone the repository
+2. Edit `db/resources.json` - add your API entry in alphabetical order within the `entries` array
+3. Update the `count` field at the top of the file
+4. Commit with a descriptive message: `Add [API Name] to [Category]`
+5. Open a pull request
 
 ### Pull Request Pro Tips
 
--   [Fork][fork-link] the repository and [clone][clone-link] it locally.
-    Connect your local repository to the original `upstream` repository by adding it as a [remote][remote-link].
-    Pull in changes from `upstream` often so that you stay up to date and so when you submit your pull request,
-    merge conflicts will be less likely. See more detailed instructions [here][syncing-link].
--   Create a [branch][branch-link] for your edits.
--   Contribute in the style of the project as outlined above. This makes it easier for the collaborators to merge
-    and for others to understand and maintain in the future.
+- [Fork][fork-link] the repository and [clone][clone-link] it locally.
+  Connect your local repository to the original `upstream` repository by adding it as a [remote][remote-link].
+  Pull in changes from `upstream` often so that you stay up to date and so when you submit your pull request,
+  merge conflicts will be less likely. See more detailed instructions [here][syncing-link].
+- Create a [branch][branch-link] for your edits.
+- Contribute in the style of the project as outlined above. This makes it easier for the collaborators to merge
+  and for others to understand and maintain in the future.
 
 ### Open Pull Requests
 
-Once you’ve opened a pull request, a discussion will start around your proposed changes.
+Once you've opened a pull request, a discussion will start around your proposed changes.
 
 Other contributors and users may chime in, but ultimately the decision is made by the collaborators.
 
 During the discussion, you may be asked to make some changes to your pull request.
 
-If so, add more commits to your branch and push them – they will automatically go into the existing pull request. But don't forget to squash them.
+If so, add more commits to your branch and push them – they will automatically go into the existing pull request.
 
 Opening a pull request will trigger a build to check the validity of all links in the project. After the build completes, **please ensure that the build has passed**. If the build did not pass, please view the build logs and correct any errors that were found in your contribution.
 
@@ -113,8 +133,5 @@ _Thanks for being a part of this project, and we look forward to hearing from yo
 [branch-link]: http://guides.github.com/introduction/flow/
 [clone-link]: https://help.github.com/articles/cloning-a-repository/
 [fork-link]: http://guides.github.com/activities/forking/
-[oauth-link]: https://en.wikipedia.org/wiki/OAuth
-[pr-link]: https://help.github.com/articles/creating-a-pull-request/
 [remote-link]: https://help.github.com/articles/configuring-a-remote-for-a-fork/
 [syncing-link]: https://help.github.com/articles/syncing-a-fork
-[squash-link]: https://github.com/todotxt/todo.txt-android/wiki/Squash-All-Commits-Related-to-a-Single-Issue-into-a-Single-Commit
