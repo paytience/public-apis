@@ -182,6 +182,12 @@ function generateCategoryFile(category, apis, sortedCategories) {
  * Generate the main README content
  */
 function generateReadme(sortedCategories, byCategory) {
+  // Calculate total APIs
+  const totalApis = Object.values(byCategory).reduce(
+    (sum, apis) => sum + apis.length,
+    0,
+  );
+
   let content = `# Public APIs
 
 <div align="center">
@@ -198,42 +204,50 @@ function generateReadme(sortedCategories, byCategory) {
     </p>
 </div>
 
-## Want to add an API?
-
-### Option 1: Via Website (Recommended)
-
-Visit [findapis.com](https://findapis.com) and click **"Suggest an API"** to submit a new API. Your submission will be reviewed and if approved, the API will appear in the directory within 1 minute.
-
-<div align="center">
-    <img src="./assets/add-api-screenshot.jpg" alt="Suggest an API on findapis.com" width="600">
-</div>
-
-### Option 2: Via Pull Request
-
-You can also submit a pull request directly to this repository. See the [Contributing Guide](CONTRIBUTING.md) for details.
-
 ## Categories
 
+**${totalApis} APIs** across **${sortedCategories.length} categories**
+
+| Category | APIs |
+|----------|------|
 `;
 
-  // Calculate total APIs
-  const totalApis = Object.values(byCategory).reduce(
-    (sum, apis) => sum + apis.length,
-    0,
-  );
-  content += `**${totalApis} APIs** across **${sortedCategories.length} categories**\n\n`;
-
   // Generate index with API counts
-  content += `| Category | APIs |\n`;
-  content += `|----------|------|\n`;
   for (const category of sortedCategories) {
     const slug = categoryToSlug(category);
     const count = byCategory[category].length;
     content += `| [${category}](./categories/${slug}.md) | ${count} |\n`;
   }
 
-  content += `\n---\n\n`;
-  content += `*Source of truth: [\`db/resources.json\`](./db/resources.json). Syncs bidirectionally with [Supabase](https://supabase.com).*\n`;
+  content += `
+---
+
+## Want to add an API?
+
+### Option 1: Pull Request
+
+Edit [\`db/resources.json\`](./db/resources.json) and submit a pull request. See the [Contributing Guide](CONTRIBUTING.md).
+
+**Required fields:**
+- \`API Name\` - Name of the API (don't end with "API")
+- \`Documentation Link\` - URL to API documentation
+
+**Optional fields:**
+- \`Description\` - What the API does
+- \`Category\` - One of the categories above
+- \`Auth\` - Authentication type: \`apiKey\`, \`OAuth\`, \`Bearer\`, or empty
+- \`HTTPS\` - \`true\` or \`false\`
+- \`Cors\` - \`yes\`, \`no\`, or \`unknown\`
+- \`Pricing\` - \`free\`, \`freemium\`, \`paid\`, or \`unknown\`
+
+### Option 2: Via Website
+
+Visit [findapis.com](https://findapis.com) and click **"Suggest an API"**.
+
+---
+
+*Source of truth: [\`db/resources.json\`](./db/resources.json). Syncs bidirectionally with [Supabase](https://supabase.com).*
+`;
 
   return content;
 }

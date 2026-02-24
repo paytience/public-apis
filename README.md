@@ -14,20 +14,6 @@
     </p>
 </div>
 
-## Want to add an API?
-
-### Option 1: Via Website (Recommended)
-
-Visit [findapis.com](https://findapis.com) and click **"Suggest an API"** to submit a new API. Your submission will be reviewed and if approved, the API will appear in the directory within 1 minute.
-
-<div align="center">
-    <img src="./assets/add-api-screenshot.jpg" alt="Suggest an API on findapis.com" width="600">
-</div>
-
-### Option 2: Via Pull Request
-
-You can also submit a pull request directly to this repository. See the [Contributing Guide](CONTRIBUTING.md) for details.
-
 ## Categories
 
 **15553 APIs** across **53 categories**
@@ -87,6 +73,30 @@ You can also submit a pull request directly to this repository. See the [Contrib
 | [Vehicle](./categories/vehicle.md) | 8 |
 | [Video](./categories/video.md) | 301 |
 | [Weather](./categories/weather.md) | 173 |
+
+---
+
+## Want to add an API?
+
+### Option 1: Pull Request
+
+Edit [`db/resources.json`](./db/resources.json) and submit a pull request. See the [Contributing Guide](CONTRIBUTING.md).
+
+**Required fields:**
+- `API Name` - Name of the API (don't end with "API")
+- `Documentation Link` - URL to API documentation
+
+**Optional fields:**
+- `Description` - What the API does
+- `Category` - One of the categories above
+- `Auth` - Authentication type: `apiKey`, `OAuth`, `Bearer`, or empty
+- `HTTPS` - `true` or `false`
+- `Cors` - `yes`, `no`, or `unknown`
+- `Pricing` - `free`, `freemium`, `paid`, or `unknown`
+
+### Option 2: Via Website
+
+Visit [findapis.com](https://findapis.com) and click **"Suggest an API"**.
 
 ---
 
