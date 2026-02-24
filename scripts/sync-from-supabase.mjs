@@ -1,7 +1,12 @@
 #!/usr/bin/env node
 
 /**
- * Sync script to export Supabase APIs database to public-apis JSON format
+ * Sync script to pull APIs from Supabase to resources.json
+ *
+ * Supabase is the source of truth:
+ * - APIs in Supabase (active) are synced to resources.json
+ * - APIs deleted/inactive in Supabase are removed from resources.json
+ * - This completely replaces resources.json with Supabase data
  *
  * Standalone script with no external dependencies - uses native fetch API
  *
@@ -126,6 +131,17 @@ function ensureDbDirectory() {
 }
 
 /**
+ * Read current resources.json if it exists
+ */
+function readCurrentResources() {
+  const filePath = path.join(process.cwd(), "db", "resources.json");
+  if (!fs.existsSync(filePath)) {
+    return { count: 0, entries: [] };
+  }
+  return JSON.parse(fs.readFileSync(filePath, "utf-8"));
+}
+
+/**
  * Write resources to db/resources.json
  */
 function writeResources(apis) {
@@ -162,7 +178,15 @@ function writeCategories(categories) {
  */
 async function sync() {
   try {
-    console.log("Starting Supabase → public-apis sync...\n");
+    console.log("Starting Supabase → resources.json sync...\n");
+    console.log("Note: Supabase is the source of truth. Any APIs not in");
+    console.log(
+      "Supabase (or not active) will be removed from resources.json.\n",
+    );
+
+    // Read current resources for comparison
+    const currentResources = readCurrentResources();
+    const currentCount = currentResources.count;
 
     // Ensure db directory exists
     ensureDbDirectory();
@@ -177,9 +201,20 @@ async function sync() {
     writeResources(apis);
     writeCategories(categories);
 
+    // Calculate diff
+    const added = apis.length - currentCount;
+    const diffText = added >= 0 ? `+${added}` : `${added}`;
+
     console.log("\n✓ Sync completed successfully!");
-    console.log(`  - ${apis.length} APIs exported`);
+    console.log(`  - ${apis.length} APIs exported (${diffText} from previous)`);
     console.log(`  - ${categories.length} categories exported`);
+
+    // If APIs were removed, note it
+    if (added < 0) {
+      console.log(
+        `\nNote: ${Math.abs(added)} APIs were removed (deleted or inactive in Supabase)`,
+      );
+    }
   } catch (err) {
     console.error("\n✗ Sync failed:", err);
     process.exit(1);

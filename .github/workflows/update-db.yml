@@ -1,23 +1,21 @@
-name: Update DB
+# DEPRECATED: This workflow is no longer used.
+# resources.json is now the source of truth, not README.md.
+# See sync-from-supabase.yml for syncing from Supabase.
+# See generate-readme.yml for generating README from resources.json.
+
+name: "[DEPRECATED] Update DB from README"
 
 on:
-    push: { branches: main }
-    # schedule:
-    #     # Every day at 00:00AM
-    #     - cron: '0 0 * * *'
-    workflow_dispatch:
+  # Disabled - only manual trigger allowed
+  workflow_dispatch:
 
 jobs:
-    update-db:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v3
-            - uses: actions/setup-node@v3
-            - run: npm install
-            - run: npm run update-db
-            - run: |
-                  git config user.name "GitHub Actions Bot"
-                  git config user.email "<>"
-            - run: git add .
-            - run: git commit -m "Auto updating db" || echo "Nothing to commit"
-            - run: git push origin HEAD:main
+  update-db:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notice
+        run: |
+          echo "This workflow is deprecated."
+          echo "resources.json is now the source of truth, synced from Supabase."
+          echo "README.md is generated from resources.json."
+          exit 1

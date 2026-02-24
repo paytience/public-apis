@@ -1,0 +1,55 @@
+name: Generate README
+
+on:
+  # Run when resources.json changes on main
+  push:
+    branches:
+      - main
+    paths:
+      - 'db/resources.json'
+
+  # Allow manual trigger
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate README
+        run: node scripts/generate-readme.mjs
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+
+          # Only commit if there are changes
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: regenerate README from resources.json"
+            git push
+          fi
+
+      - name: Create summary
+        run: |
+          echo "## README Generation Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          if [ -f db/resources.json ]; then
+            API_COUNT=$(jq '.count' db/resources.json)
+            echo "**APIs in README:** $API_COUNT" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Date:** $(date -u +%Y-%m-%d\ %H:%M:%S\ UTC)" >> $GITHUB_STEP_SUMMARY
