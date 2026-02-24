@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 
 /**
- * Generate README.md from db/resources.json
+ * Generate README.md and category files from db/resources.json
  *
- * Reads the API data from the database and generates a markdown README
- * with tables organized by category.
+ * Reads the API data from the database and generates:
+ * 1. Main README.md with index linking to category files
+ * 2. Individual category files in categories/ directory
  */
 
 import * as fs from "fs";
@@ -12,15 +13,17 @@ import * as path from "path";
 
 const DB_PATH = path.join(process.cwd(), "db", "resources.json");
 const README_PATH = path.join(process.cwd(), "README.md");
+const CATEGORIES_DIR = path.join(process.cwd(), "categories");
 
 /**
- * Generate a URL-friendly anchor from a category name
+ * Generate a URL-friendly slug from a category name
  */
-function categoryToAnchor(category) {
+function categoryToSlug(category) {
   return category
     .toLowerCase()
-    .replace(/&/g, "")
+    .replace(/&/g, "and")
     .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9-]/g, "")
     .replace(/--+/g, "-");
 }
 
@@ -110,32 +113,75 @@ function formatPricing(pricing) {
 }
 
 /**
- * Generate the README content
+ * Generate API table rows
  */
-function generateReadme(data) {
-  const apis = data.entries;
+function generateApiTable(apis) {
+  let content = `| API | Description | Auth | HTTPS | CORS | Pricing |\n`;
+  content += `|---|---|---|---|---|---|\n`;
 
-  // Group APIs by category
-  const byCategory = {};
   for (const api of apis) {
-    const category = api.Category || "Other";
-    if (!byCategory[category]) {
-      byCategory[category] = [];
-    }
-    byCategory[category].push(api);
-  }
-
-  // Sort categories alphabetically
-  const sortedCategories = Object.keys(byCategory).sort();
-
-  // Sort APIs within each category alphabetically
-  for (const category of sortedCategories) {
-    byCategory[category].sort((a, b) =>
-      (a["API Name"] || "").localeCompare(b["API Name"] || ""),
+    const name = escapeMarkdown(api["API Name"] || "");
+    const description = escapeMarkdown(
+      truncateDescription(api.Description || "", 100),
     );
+    const link = api["Documentation Link"] || "";
+    const auth = formatAuth(api.Auth);
+    const https = formatYesNo(api.HTTPS);
+    const cors = formatYesNo(api.Cors);
+    const pricing = formatPricing(api.Pricing);
+
+    const nameCell = link ? `[${name}](${link})` : name;
+    content += `| ${nameCell} | ${description} | ${auth} | ${https} | ${cors} | ${pricing} |\n`;
   }
 
-  // Build README content
+  return content;
+}
+
+/**
+ * Generate a category file
+ */
+function generateCategoryFile(category, apis, sortedCategories) {
+  const slug = categoryToSlug(category);
+
+  // Find prev/next categories for navigation
+  const currentIndex = sortedCategories.indexOf(category);
+  const prevCategory =
+    currentIndex > 0 ? sortedCategories[currentIndex - 1] : null;
+  const nextCategory =
+    currentIndex < sortedCategories.length - 1
+      ? sortedCategories[currentIndex + 1]
+      : null;
+
+  let content = `# ${category}\n\n`;
+  content += `${apis.length} APIs in this category.\n\n`;
+  content += `[Back to Main Index](../README.md)\n\n`;
+
+  // Navigation
+  content += `---\n\n`;
+  if (prevCategory) {
+    content += `← [${prevCategory}](./${categoryToSlug(prevCategory)}.md) | `;
+  } else {
+    content += `← Previous | `;
+  }
+  if (nextCategory) {
+    content += `[${nextCategory}](./${categoryToSlug(nextCategory)}.md) →\n\n`;
+  } else {
+    content += `Next →\n\n`;
+  }
+  content += `---\n\n`;
+
+  content += generateApiTable(apis);
+
+  content += `\n---\n\n`;
+  content += `[Back to Main Index](../README.md)\n`;
+
+  return { slug, content };
+}
+
+/**
+ * Generate the main README content
+ */
+function generateReadme(sortedCategories, byCategory) {
   let content = `# Public APIs
 
 <div align="center">
@@ -166,52 +212,56 @@ Visit [findapis.com](https://findapis.com) and click **"Suggest an API"** to sub
 
 You can also submit a pull request directly to this repository. See the [Contributing Guide](CONTRIBUTING.md) for details.
 
-## Index
+## Categories
 
 `;
 
-  // Generate index
+  // Calculate total APIs
+  const totalApis = Object.values(byCategory).reduce(
+    (sum, apis) => sum + apis.length,
+    0,
+  );
+  content += `**${totalApis} APIs** across **${sortedCategories.length} categories**\n\n`;
+
+  // Generate index with API counts
+  content += `| Category | APIs |\n`;
+  content += `|----------|------|\n`;
   for (const category of sortedCategories) {
-    const anchor = categoryToAnchor(category);
-    content += `* [${category}](#${anchor})\n`;
+    const slug = categoryToSlug(category);
+    const count = byCategory[category].length;
+    content += `| [${category}](./categories/${slug}.md) | ${count} |\n`;
   }
 
-  content += "\n";
-
-  // Generate tables for each category
-  for (const category of sortedCategories) {
-    const apis = byCategory[category];
-
-    content += `### ${category}\n`;
-    content += `| API | Description | Auth | HTTPS | CORS | Pricing |\n`;
-    content += `|---|---|---|---|---|---|\n`;
-
-    for (const api of apis) {
-      const name = escapeMarkdown(api["API Name"] || "");
-      const description = escapeMarkdown(
-        truncateDescription(api.Description || "", 100),
-      );
-      const link = api["Documentation Link"] || "";
-      const auth = formatAuth(api.Auth);
-      const https = formatYesNo(api.HTTPS);
-      const cors = formatYesNo(api.Cors);
-      const pricing = formatPricing(api.Pricing);
-
-      const nameCell = link ? `[${name}](${link})` : name;
-      content += `| ${nameCell} | ${description} | ${auth} | ${https} | ${cors} | ${pricing} |\n`;
-    }
-
-    content += `\n**[⬆ Back to Index](#index)**\n\n`;
-  }
+  content += `\n---\n\n`;
+  content += `*Generated from [Supabase](https://supabase.com) database. Data syncs daily.*\n`;
 
   return content;
+}
+
+/**
+ * Ensure the categories directory exists and is clean
+ */
+function ensureCategoriesDirectory() {
+  if (fs.existsSync(CATEGORIES_DIR)) {
+    // Remove existing category files
+    const files = fs.readdirSync(CATEGORIES_DIR);
+    for (const file of files) {
+      if (file.endsWith(".md")) {
+        fs.unlinkSync(path.join(CATEGORIES_DIR, file));
+      }
+    }
+  } else {
+    fs.mkdirSync(CATEGORIES_DIR, { recursive: true });
+  }
 }
 
 /**
  * Main function
  */
 function main() {
-  console.log("Generating README.md from db/resources.json...\n");
+  console.log(
+    "Generating README.md and category files from db/resources.json...\n",
+  );
 
   // Check if db file exists
   if (!fs.existsSync(DB_PATH)) {
@@ -224,25 +274,57 @@ function main() {
   const rawData = fs.readFileSync(DB_PATH, "utf-8");
   const data = JSON.parse(rawData);
 
+  // Group APIs by category
+  const byCategory = {};
+  for (const api of data.entries) {
+    const category = api.Category || "Other";
+    if (!byCategory[category]) {
+      byCategory[category] = [];
+    }
+    byCategory[category].push(api);
+  }
+
+  // Sort categories alphabetically
+  const sortedCategories = Object.keys(byCategory).sort();
+
+  // Sort APIs within each category alphabetically
+  for (const category of sortedCategories) {
+    byCategory[category].sort((a, b) =>
+      (a["API Name"] || "").localeCompare(b["API Name"] || ""),
+    );
+  }
+
   console.log(
-    `Found ${data.count} APIs in ${
-      Object.keys(
-        data.entries.reduce((acc, api) => {
-          acc[api.Category] = true;
-          return acc;
-        }, {}),
-      ).length
-    } categories`,
+    `Found ${data.count} APIs in ${sortedCategories.length} categories`,
   );
 
-  // Generate README content
-  const content = generateReadme(data);
+  // Ensure categories directory exists
+  ensureCategoriesDirectory();
 
-  // Write README
-  fs.writeFileSync(README_PATH, content, "utf-8");
+  // Generate category files
+  console.log("\nGenerating category files...");
+  for (const category of sortedCategories) {
+    const { slug, content } = generateCategoryFile(
+      category,
+      byCategory[category],
+      sortedCategories,
+    );
+    const filePath = path.join(CATEGORIES_DIR, `${slug}.md`);
+    fs.writeFileSync(filePath, content, "utf-8");
+    console.log(`  ✓ ${slug}.md (${byCategory[category].length} APIs)`);
+  }
 
-  console.log(`\n✓ Successfully generated README.md`);
-  console.log(`  - ${data.count} APIs`);
+  // Generate main README
+  console.log("\nGenerating main README.md...");
+  const readmeContent = generateReadme(sortedCategories, byCategory);
+  fs.writeFileSync(README_PATH, readmeContent, "utf-8");
+
+  console.log(`\n✓ Successfully generated:`);
+  console.log(
+    `  - README.md (index with ${sortedCategories.length} categories)`,
+  );
+  console.log(`  - ${sortedCategories.length} category files in categories/`);
+  console.log(`  - ${data.count} total APIs`);
 }
 
 main();
