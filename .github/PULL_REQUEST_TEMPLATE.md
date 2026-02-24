@@ -43,7 +43,7 @@ Add this to `db/resources.json`:
 - [ ] I have read the [contributing guide](https://github.com/paytience/public-apis/blob/main/CONTRIBUTING.md)
 - [ ] I edited `db/resources.json`
 - [ ] The API has proper documentation
-- [ ] My addition is ordered alphabetically within the `entries` array
+
 - [ ] The description is under 100 characters
 - [ ] The API name does not end with "API"
 - [ ] I updated the `count` field at the top of resources.json
