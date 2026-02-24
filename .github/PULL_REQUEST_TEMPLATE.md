@@ -43,8 +43,6 @@ Add this to `db/resources.json`:
 - [ ] I have read the [contributing guide](https://github.com/paytience/public-apis/blob/main/CONTRIBUTING.md)
 - [ ] I edited `db/resources.json`
 - [ ] The API has proper documentation
-
-- [ ] The description is under 100 characters
 - [ ] The API name does not end with "API"
 - [ ] I updated the `count` field at the top of resources.json
 - [ ] I have searched for duplicate PRs/issues
