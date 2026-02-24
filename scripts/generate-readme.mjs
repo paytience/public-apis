@@ -244,6 +244,10 @@ Edit [\`db/resources.json\`](./db/resources.json) and submit a pull request. See
 
 Visit [findapis.com](https://findapis.com) and click **"Suggest an API"**.
 
+<div align="center">
+    <img src="./assets/add-api-screenshot.jpg" alt="Suggest an API on findapis.com" width="600">
+</div>
+
 ---
 
 *Source of truth: [\`db/resources.json\`](./db/resources.json). Syncs bidirectionally with [Supabase](https://supabase.com).*
