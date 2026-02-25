@@ -87,7 +87,7 @@ Edit [`db/resources.json`](./db/resources.json) and submit a pull request. See t
 - `Documentation Link` - URL to API documentation
 
 **Optional fields:**
-- `Description` - What the API does
+- `Description` - What the API does (can be empty)
 - `Category` - One of the categories above
 - `Auth` - `apiKey`, `OAuth`, `Bearer`, or empty
 - `HTTPS` - `true`, `false`, or empty
