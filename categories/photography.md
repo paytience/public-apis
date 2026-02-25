@@ -1,6 +1,6 @@
 # Photography
 
-317 APIs in this category.
+316 APIs in this category.
 
 [Back to Main Index](../README.md)
 
@@ -236,7 +236,6 @@
 | [Readme typing SVG](https://github.com/DenverCoder1/readme-typing-svg) | Customizable typing and deleting text SVG | No | Yes |  | Free |
 | [Remove Background from Images](https://apyhub.com/utility/image-processor-remove-background) | This API helps you remove background from any image | `apiKey` | Yes | Yes | Free |
 | [Remove.bg](https://www.remove.bg/api) | Automatic background removal from images using AI. | `apiKey` | Yes |  | Unknown |
-| [Remove.bg](https://www.remove.bg/api) | Image Background removal | `apiKey` | Yes |  | Free |
 | [Resizor](http://resizor.com/api) | Resizor is an image resizing service. It is intended for use by app developers who need their... | No | Yes |  | Unknown |
 | [ReSmush.it](https://resmush.it/api) | Photo optimization | No | No |  | Free |
 | [Restpack Website Screenshot](https://restpack.io/screenshot/docs) | The Restpack Website Screenshot API allows developers to capture screenshots of live web pages and... | No | Yes |  | Unknown |

@@ -1,6 +1,6 @@
 # Continuous Integration
 
-8 APIs in this category.
+7 APIs in this category.
 
 [Back to Main Index](../README.md)
 
@@ -17,7 +17,6 @@
 | [Buddy](https://buddy.works/docs/api/getting-started/overview) | The fastest continuous integration and continuous delivery platform | `OAuth` | Yes |  | Free |
 | [CircleCI](https://circleci.com/docs/api/v2/) | Automate the software development process using continuous integration and continuous delivery | `apiKey` | Yes |  | Free |
 | [Codeship](https://docs.cloudbees.com/docs/cloudbees-codeship/latest/api-overview/) | Codeship is a Continuous Integration Platform in the cloud | `apiKey` | Yes |  | Free |
-| [EC2.shop](https://github.com/yeo/ec2.shop) | Get AWS service price right from your terminal | No | No | No | Free |
 | [EC2.shop](https://github.com/yeo/ec2.shop) | Get AWS service price right from your terminal | No | No | No | Free |
 | [Travis CI](https://docs.travis-ci.com/api/) | Sync your GitHub projects with Travis CI to test your code in minutes | `apiKey` | Yes |  | Free |
 

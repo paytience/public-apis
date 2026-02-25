@@ -1,6 +1,6 @@
 # Video
 
-301 APIs in this category.
+300 APIs in this category.
 
 [Back to Main Index](../README.md)
 
@@ -145,7 +145,6 @@
 | [info-beamer](https://info-beamer.com/doc/api) | The info-beamer API returns digital signage, screen synchronization, and video player features from... | No | Yes |  | Unknown |
 | [IVA Video](https://developer.iva-api.com) | Internet Video Archive's Entertainment Express API connects you to our movie, TV, and Video Game... | No | Yes |  | Unknown |
 | [Izettle Product Library](https://izettle.com) | The Product Library API is used for managing merchant's product information and product images. | `OAuth` | Yes |  | Unknown |
-| [JSON2Video](https://json2video.com) | Create and edit videos programmatically: watermarks,resizing,slideshows,voice-over,text animations | `apiKey` | Yes | No | Free |
 | [JSON2Video](https://json2video.com) | Create and edit awesome videos programmatically | No | Yes |  | Unknown |
 | [Justin.tv](http://www.justin.tv/p/api) | The Justin.tv API includes all the basic building blocks a developer needs to create an application... | No | Yes |  | Unknown |
 | [JW Player Delivery](https://developer.jwplayer.com/jw-platform/docs/delivery-api-reference) | The JW Player API supports JSON and RSS data to return video content data over HTTP and HTTPS with... | No | Yes |  | Unknown |

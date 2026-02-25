@@ -1,6 +1,6 @@
 # Geocoding
 
-583 APIs in this category.
+582 APIs in this category.
 
 [Back to Main Index](../README.md)
 
@@ -465,7 +465,6 @@
 | [Quick start - Telematics SDK](https://telematicssdk.com) | # Introduction We have prepared a set of APIs for quick start to integrate telematics SDK that... | No | Yes |  | Unknown |
 | [Radar](https://www.onradar.com/documentation) | The Radar REST API allows developers to access and integrate the functionality of Radar with other... | No | Yes |  | Unknown |
 | [Resighting](https://www.resighting.com/developers) | Resighting is an application for geo-tagging and saving favorite places. | No | Yes |  | Unknown |
-| [REST Countries](https://restcountries.com) | Get information about countries via a RESTful API | No | Yes | Yes | Free |
 | [REST Countries](https://restcountries.com) | Country data including flags, currencies, and languages. | No | Yes | Yes | Unknown |
 | [Return ZIP Codes Inside Radius](https://www.promaptools.com/#zips-inside-radius) | The Return ZIP Codes Inside Radius API allows developers to integrate the Pro Map Restful web... | No | Yes |  | Unknown |
 | [rFocus GIS](http://gis.rfocus.com/WebServices.aspx) | rFocus provides a handful of GIS-related web services to the public free of charge. | No | Yes |  | Unknown |

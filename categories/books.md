@@ -1,6 +1,6 @@
 # Books
 
-54 APIs in this category.
+52 APIs in this category.
 
 [Back to Main Index](../README.md)
 
@@ -31,7 +31,6 @@
 | [HarperCollins Open Book](http://developer.harpercollins.com) | HarperCollins is a large book publisher. HarperCollins publishes a wide variety of genres,... | No | Yes |  | Unknown |
 | [Harry Potter](https://github.com/fedeperin/potterapi) | API to get data from Harry Potter books, movies and characters | No | Yes | Yes | Free |
 | [Holy Bible](https://holy-bible-api.com/docs) | Free Bible API serving 800+ text translations and 40+ audio translations | No | Yes | No | Free |
-| [Holy Bible](https://holy-bible-api.com/docs) | Free Bible API serving 800+ text translations and 40+ audio translations | No | Yes | No | Free |
 | [Ice And Fire](https://anapioficeandfire.com) | The Ice And Fire API allows access of quantified and structured data from the universe of 'A Song... | No | Yes |  | Unknown |
 | [IT Bookstore](https://api.itbook.store) | IT Bookstore is the supporting API for IT Bookstore, a California-based IT, Programming, and... | No | Yes |  | Unknown |
 | [IT eBooks](http://www.it-ebooks-api.info) | IT eBooks provides online access to computer science and programming books, which can be downloaded... | No | Yes |  | Unknown |
@@ -43,7 +42,6 @@
 | [Living Stones](http://www.lstones.com/webservices.php) | Living Stones is a web service for any website to be able to search any of three Bible translations... | No | Yes |  | Unknown |
 | [Lulu Publishing](https://developers.lulu.com) | The Lulu Print API allows you to use Lulu. | No | Yes |  | Unknown |
 | [Open Collections](https://open.library.ubc.ca/research) | The University of British Columbia Open Collections library contains about 200,000 items such as... | No | Yes |  | Unknown |
-| [Open Library](https://openlibrary.org/developers/api) | Books, book covers and related data | No | Yes | No | Free |
 | [Open Library](https://openlibrary.org/developers/api) | Book data, covers, and reading lists from Internet Archive. | No | Yes | Yes | Unknown |
 | [Open Library History](https://openlibrary.org/dev/docs/restful_api) | This REST API allows you to change history of any Open Library object that can be accessed by... | No | Yes |  | Unknown |
 | [Open Library Lists](https://openlibrary.org/dev/docs/api/lists) | This is a beta of Open Library lists API and is still under development. | No | Yes |  | Unknown |

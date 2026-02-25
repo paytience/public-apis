@@ -1,6 +1,6 @@
 # Food & Drink
 
-88 APIs in this category.
+87 APIs in this category.
 
 [Back to Main Index](../README.md)
 
@@ -80,7 +80,6 @@
 | [The Report of the Week](https://github.com/andyklimczak/TheReportOfTheWeek-API) | Food & Drink Reviews | No | Yes |  | Free |
 | [TheCocktailDB](https://www.thecocktaildb.com/api.php) | Cocktail Recipes | `apiKey` | Yes | Yes | Free |
 | [TheMealDB](https://www.themealdb.com/api.php) | Free meal and recipe database with images and instructions. | `apiKey` | Yes | Yes | Unknown |
-| [TheMealDB](https://www.themealdb.com/api.php) | Meal Recipes | `apiKey` | Yes | Yes | Free |
 | [tropicalfruitandveg](http://tropicalfruitandveg.com/api/tfvrestapi2.pdf) | The tropicalfruitandveg.com API provides a simple way to integrate information on... | No | Yes |  | Unknown |
 | [Unofficial Tasty](https://rapidapi.com/apidojo/api/tasty) | This unofficial API provides a way to query data about a recipe, plan, ingredients and more from... | No | Yes |  | Unknown |
 | [Unofficial Yummly](https://rapidapi.com/apidojo/api/yummly2) | This unofficial API provides a way to query data about a recipe, plan, ingredients and more from... | No | Yes |  | Unknown |

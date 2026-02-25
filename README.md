@@ -89,10 +89,10 @@ Edit [`db/resources.json`](./db/resources.json) and submit a pull request. See t
 **Optional fields:**
 - `Description` - What the API does
 - `Category` - One of the categories above
-- `Auth` - Authentication type: `apiKey`, `OAuth`, `Bearer`, or empty
+- `Auth` - `apiKey`, `OAuth`, `Bearer`, or empty
 - `HTTPS` - `true` or `false`
 - `Cors` - `yes`, `no`, or empty
-- `Pricing` - `free`, `freemium`, `paid`, or empty
+- `Pricing` - `free`, `freemium`, or `paid`
 
 ### Option 2: Via Website
 

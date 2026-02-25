@@ -1,6 +1,6 @@
 # Development
 
-2210 APIs in this category.
+2209 APIs in this category.
 
 [Back to Main Index](../README.md)
 
@@ -1087,7 +1087,6 @@
 | [ipapi](https://ipapi.com/documentation) | ipapi offers a free, secure and easy-to-integrate IP address to geolocation REST API allowing users... | No | Yes |  | Unknown |
 | [ipfind.io](https://ipfind.io) | Geographic location of an IP address or any domain name along with some other useful information | `apiKey` | Yes | Yes | Free |
 | [IPify](https://www.ipify.org/) | A simple IP Address API | No | Yes |  | Free |
-| [IPinfo](https://ipinfo.io/developers) | Another simple IP Address API | No | Yes |  | Free |
 | [IPLocate](https://www.iplocate.io/) | IP geolocation and threat data API | No | Yes | Yes | Free |
 | [iplocationtools](https://iplocationtools.com) | iplocationtools provides web services that use an IP address to look up geolocation and fraud... | No | Yes |  | Unknown |
 | [IPQuery](https://ipquery.io) | A free IP Geolocation and proxy/tor/VPN detection API | No | Yes | Yes | Free |
@@ -1718,7 +1717,7 @@
 | [Screenhero](https://screenhero.com/features.html) | Screenhero is a collaborative screen sharing application. | No | Yes |  | Unknown |
 | [Screenleap](https://www.screenleap.com/api) | Screenleap is a web-based service that enables users to share their computer screens with others. | No | Yes |  | Unknown |
 | [Screenshot](https://www.abstractapi.com/website-screenshot-api) | Take programmatic screenshots of web pages from any website | `apiKey` | Yes | Yes | Unknown |
-| [Screenshot Scout](https://screenshotscout.com/) | Screenshot API for developers that captures any URL in one HTTP request with predictable output | `apiKey` | Yes | Unknown | Unknown |
+| [Screenshot Scout](https://screenshotscout.com/) | Screenshot API for developers that captures any URL in one HTTP request with predictable output | `apiKey` | Yes |  | Unknown |
 | [ScreenshotAPI.net](https://screenshotapi.net/) | Create pixel-perfect website screenshots | `apiKey` | Yes | Yes | Free |
 | [Screenshotbase](https://screenshotbase.com/) | Screenshot API, 1000 free requests per month | `apiKey` | Yes | Yes | Free |
 | [ScreenshotOne.com](https://screenshotone.com/) | Convert URLs, HTML, or Markdown into PNG, JPEG, WebP, or PDF with a simple screenshot API | `apiKey` | Yes | Yes | Free |

@@ -1,6 +1,6 @@
 # Finance
 
-1536 APIs in this category.
+1535 APIs in this category.
 
 [Back to Main Index](../README.md)
 
@@ -571,7 +571,6 @@
 | [FinFeedAPI](https://finfeedapi.com) | Developer-first market data API | `apiKey` | Yes |  | Free |
 | [FinFolio WealthLab.io](https://www.finfolio.com/api) | FinFolio wealthlab.io is a REST API for portfolio management and trading to import and store data,... | No | Yes |  | Unknown |
 | [Finicity Aggregation](https://support.finicity.com/hc/en-us/categories/200165785-Finicity-Aggregation-API) | Finicity's Aggregation API offers services for partners that brings together Transaction, Account... | No | Yes |  | Unknown |
-| [Finnhub](https://finnhub.io/docs/api) | Real-Time RESTful APIs and Websocket for Stocks, Currencies, and Crypto | `apiKey` | Yes |  | Free |
 | [Finnhub](https://finnhub.io/docs/api) | Real-time stock prices, company fundamentals, and financial news. | `apiKey` | Yes |  | Unknown |
 | [Finnhub Stock](https://finnhub.io/docs/api#introduction) | The Finnhub Stock API retrieves stock fundamentals, stock price, forex, crypto, technical analysis,... | No | Yes |  | Unknown |
 | [Finotec](https://www.finotec.com/api.php) | Finotec is a London-based forex broker that that offers electronic trading, voice trading, and... | No | Yes |  | Unknown |
