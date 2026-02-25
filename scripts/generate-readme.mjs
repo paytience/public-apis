@@ -237,8 +237,8 @@ Edit [\`db/resources.json\`](./db/resources.json) and submit a pull request. See
 - \`Category\` - One of the categories above
 - \`Auth\` - Authentication type: \`apiKey\`, \`OAuth\`, \`Bearer\`, or empty
 - \`HTTPS\` - \`true\` or \`false\`
-- \`Cors\` - \`yes\`, \`no\`, or \`unknown\`
-- \`Pricing\` - \`free\`, \`freemium\`, \`paid\`, or \`unknown\`
+- \`Cors\` - \`yes\`, \`no\`, or empty
+- \`Pricing\` - \`free\`, \`freemium\`, \`paid\`, or empty
 
 ### Option 2: Via Website
 
