@@ -236,9 +236,9 @@ Edit [\`db/resources.json\`](./db/resources.json) and submit a pull request. See
 - \`Description\` - What the API does
 - \`Category\` - One of the categories above
 - \`Auth\` - \`apiKey\`, \`OAuth\`, \`Bearer\`, or empty
-- \`HTTPS\` - \`true\` or \`false\`
+- \`HTTPS\` - \`true\`, \`false\`, or empty
 - \`Cors\` - \`yes\`, \`no\`, or empty
-- \`Pricing\` - \`free\`, \`freemium\`, or \`paid\`
+- \`Pricing\` - \`free\`, \`freemium\`, \`paid\`, or empty
 
 ### Option 2: Via Website
 
