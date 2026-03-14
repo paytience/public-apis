@@ -16,7 +16,7 @@
 
 ## Categories
 
-**15543 APIs** across **53 categories**
+**15545 APIs** across **53 categories**
 
 | Category | APIs |
 |----------|------|
@@ -37,7 +37,7 @@
 | [Development](./categories/development.md) | 2209 |
 | [Dictionaries](./categories/dictionaries.md) | 11 |
 | [Documents & Productivity](./categories/documents-and-productivity.md) | 173 |
-| [Email](./categories/email.md) | 274 |
+| [Email](./categories/email.md) | 275 |
 | [Entertainment](./categories/entertainment.md) | 188 |
 | [Environment](./categories/environment.md) | 55 |
 | [Events](./categories/events.md) | 104 |
@@ -53,7 +53,7 @@
 | [News](./categories/news.md) | 55 |
 | [Open Data](./categories/open-data.md) | 969 |
 | [Open Source Projects](./categories/open-source-projects.md) | 45 |
-| [Other](./categories/other.md) | 1496 |
+| [Other](./categories/other.md) | 1497 |
 | [Patent](./categories/patent.md) | 4 |
 | [Personality](./categories/personality.md) | 25 |
 | [Phone](./categories/phone.md) | 290 |
