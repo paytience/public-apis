@@ -16,7 +16,7 @@
 
 ## Categories
 
-**15520 APIs** across **53 categories**
+**15521 APIs** across **53 categories**
 
 | Category | APIs |
 |----------|------|
@@ -60,7 +60,7 @@
 | [Photography](./categories/photography.md) | 316 |
 | [Podcasts](./categories/podcasts.md) | 7 |
 | [Programming](./categories/programming.md) | 9 |
-| [Science & Math](./categories/science-and-math.md) | 334 |
+| [Science & Math](./categories/science-and-math.md) | 335 |
 | [Security](./categories/security.md) | 339 |
 | [Shopping](./categories/shopping.md) | 507 |
 | [Social](./categories/social.md) | 754 |
